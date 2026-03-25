@@ -1,30 +1,43 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: 'swap' });
-const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: 'swap' });
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://czarinaagoncillo.com'),
-  title: "Czarina Agoncillo | Developer, SEO Specialist & Author",
-  description: "Official site of Czarina Agoncillo. Founder of Strategos, systems architect, and author specializing in digital protection and human systems.",
-  alternates: { canonical: '/' },
+  metadataBase: new URL("https://czarinaagoncillo.com"),
+  title: "Czarina Agoncillo | Marketing Technologist, Systems Builder, Author",
+  description:
+    "Official website of Czarina Agoncillo — marketing technologist, systems builder, SEO specialist, author, and creator of Strategos.",
   openGraph: {
     title: "Czarina Agoncillo",
-    description: "Developer, SEO Specialist, and Systems Builder.",
-    url: 'https://czarinaagoncillo.com',
-    siteName: 'Czarina Agoncillo',
-    type: 'website',
+    description:
+      "Marketing Technologist, Systems Builder, SEO Specialist, Author, and creator of Strategos.",
+    url: "https://czarinaagoncillo.com",
+    siteName: "Czarina Agoncillo",
+    type: "website",
+    images: [
+      {
+        url: "/czarina.png",
+        width: 1200,
+        height: 1200,
+        alt: "Czarina Agoncillo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Czarina Agoncillo",
+    description:
+      "Marketing Technologist, Systems Builder, SEO Specialist, Author, and creator of Strategos.",
+    images: ["/czarina.png"],
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable} scroll-smooth`}>
-      <body className="bg-background text-text-main antialiased selection:bg-accent selection:text-white">
-        {children}
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
